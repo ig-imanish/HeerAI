@@ -1,4 +1,4 @@
-import keywords from "./keywords";
+import keywords from "./keywords.js";
 
 const textarea = document.getElementById("prompt");
 const sendButton = document.getElementById("sendButton");
@@ -161,3 +161,6 @@ style.textContent = `
         }
       `;
 document.head.appendChild(style);
+// Expose fetchResponses to the global window object so inline `onclick` handlers
+// in the HTML can call it. We keep the function as-is and attach it here.
+window.fetchResponses = fetchResponses;
